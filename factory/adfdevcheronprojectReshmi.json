@@ -1,0 +1,15 @@
+{
+	"name": "adfdevcheronprojectReshmi",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d41cb9a8-319c-4575-b9a7-f3f71f184bcc",
+		"tenantId": "4888b156-e071-44a9-a379-ba0ff1799fb9"
+	}
+}

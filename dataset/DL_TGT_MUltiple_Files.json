@@ -1,0 +1,22 @@
+{
+	"name": "DL_TGT_MUltiple_Files",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LST_TGT_MUltiple_Files",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
