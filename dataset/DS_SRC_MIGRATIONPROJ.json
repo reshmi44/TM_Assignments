@@ -1,0 +1,12 @@
+{
+	"name": "DS_SRC_MIGRATIONPROJ",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SRC_MIGRATIONPROJ",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
