@@ -48,7 +48,25 @@
 						"value": "@activity('LKP_SQL_WATERMARK').output.value",
 						"type": "Expression"
 					},
-					"isSequential": false
+					"isSequential": false,
+					"activities": [
+						{
+							"name": "Execute Pipeline2",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "child pipeline",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
 				}
 			},
 			{
