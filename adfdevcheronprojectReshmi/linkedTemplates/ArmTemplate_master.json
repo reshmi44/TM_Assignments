@@ -1,0 +1,439 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfdevcheronprojectReshmi"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage3'"
+		},
+		"LST_TGT_MUltiple_Files_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LST_TGT_MUltiple_Files'"
+		},
+		"LS_Multiple_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Multiple'"
+		},
+		"LS_PRQ_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_PRQ'"
+		},
+		"LS_SOURCE_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SOURCE_CSV'"
+		},
+		"LS_SOURCE_EXCEL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SOURCE_EXCEL'"
+		},
+		"LS_SOURCE_Multiple_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SOURCE_Multiple'"
+		},
+		"LS_SP1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SP1'"
+		},
+		"LS_SQLSERVER_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER'"
+		},
+		"LS_SQL_CLOUD_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_CLOUD'"
+		},
+		"LS_SQL_CLOUD2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_CLOUD2'"
+		},
+		"LS_SQL_CLoudN_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_CLoudN'"
+		},
+		"LS_TEST_FILES_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEST_FILES'"
+		},
+		"LS_TEST_FILES_SRC_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEST_FILES_SRC'"
+		},
+		"LS_TEST_FILES_TGT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEST_FILES_TGT'"
+		},
+		"LS_TEST_FOREACH_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEST_FOREACH'"
+		},
+		"LS_TEXT_MULYPLE_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEXT_MULYPLE_CSV'"
+		},
+		"LS_TGT_RESTAPI_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TGT_RESTAPI'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtsqlcloud.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgttestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LST_TGT_MUltiple_Files_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_Multiple_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_PRQ_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_RESTAPI_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"LS_SOURCE_CSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srcexcel.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_EXCEL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://samplesrcdev.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_Multiple_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srcexcel.dfs.core.windows.net/"
+		},
+		"LS_SP1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SP1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SP1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"LS_SQLSERVER_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SQLSERVER_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "DESKTOP-HUMOS9F\\Lenova"
+		},
+		"LS_SQL_CLOUD_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_CLOUD_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SQL_CLOUD_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "DESKTOP-HUMOS9F\\Lenova"
+		},
+		"LS_SQL_CLOUD2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_CLOUD2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SQL_CLOUD2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"LS_SQL_CLoudN_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_CLoudN_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SQL_CLoudN_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"LS_TEST_FILES_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srctestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEST_FILES_SRC_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srctestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEST_FILES_TGT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgttestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEST_FOREACH_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srctestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEXT_MULYPLE_CSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_TGT_RESTAPI_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtsqlcloud.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfdevcheronprojectReshmi_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"AzureDataLakeStorage3_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
+					},
+					"LST_TGT_MUltiple_Files_accountKey": {
+						"value": "[parameters('LST_TGT_MUltiple_Files_accountKey')]"
+					},
+					"LS_Multiple_accountKey": {
+						"value": "[parameters('LS_Multiple_accountKey')]"
+					},
+					"LS_PRQ_accountKey": {
+						"value": "[parameters('LS_PRQ_accountKey')]"
+					},
+					"LS_SOURCE_CSV_accountKey": {
+						"value": "[parameters('LS_SOURCE_CSV_accountKey')]"
+					},
+					"LS_SOURCE_EXCEL_accountKey": {
+						"value": "[parameters('LS_SOURCE_EXCEL_accountKey')]"
+					},
+					"LS_SOURCE_Multiple_accountKey": {
+						"value": "[parameters('LS_SOURCE_Multiple_accountKey')]"
+					},
+					"LS_TEST_FILES_accountKey": {
+						"value": "[parameters('LS_TEST_FILES_accountKey')]"
+					},
+					"LS_TEST_FILES_SRC_accountKey": {
+						"value": "[parameters('LS_TEST_FILES_SRC_accountKey')]"
+					},
+					"LS_TEST_FILES_TGT_accountKey": {
+						"value": "[parameters('LS_TEST_FILES_TGT_accountKey')]"
+					},
+					"LS_TEST_FOREACH_accountKey": {
+						"value": "[parameters('LS_TEST_FOREACH_accountKey')]"
+					},
+					"LS_TEXT_MULYPLE_CSV_accountKey": {
+						"value": "[parameters('LS_TEXT_MULYPLE_CSV_accountKey')]"
+					},
+					"LS_TGT_RESTAPI_accountKey": {
+						"value": "[parameters('LS_TGT_RESTAPI_accountKey')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage3_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage3_properties_typeProperties_url')]"
+					},
+					"LST_TGT_MUltiple_Files_properties_typeProperties_url": {
+						"value": "[parameters('LST_TGT_MUltiple_Files_properties_typeProperties_url')]"
+					},
+					"LS_Multiple_properties_typeProperties_url": {
+						"value": "[parameters('LS_Multiple_properties_typeProperties_url')]"
+					},
+					"LS_PRQ_properties_typeProperties_url": {
+						"value": "[parameters('LS_PRQ_properties_typeProperties_url')]"
+					},
+					"LS_RESTAPI_properties_typeProperties_url": {
+						"value": "[parameters('LS_RESTAPI_properties_typeProperties_url')]"
+					},
+					"LS_SOURCE_CSV_properties_typeProperties_url": {
+						"value": "[parameters('LS_SOURCE_CSV_properties_typeProperties_url')]"
+					},
+					"LS_SOURCE_EXCEL_properties_typeProperties_url": {
+						"value": "[parameters('LS_SOURCE_EXCEL_properties_typeProperties_url')]"
+					},
+					"LS_SOURCE_Multiple_properties_typeProperties_url": {
+						"value": "[parameters('LS_SOURCE_Multiple_properties_typeProperties_url')]"
+					},
+					"LS_TEST_FILES_properties_typeProperties_url": {
+						"value": "[parameters('LS_TEST_FILES_properties_typeProperties_url')]"
+					},
+					"LS_TEST_FILES_SRC_properties_typeProperties_url": {
+						"value": "[parameters('LS_TEST_FILES_SRC_properties_typeProperties_url')]"
+					},
+					"LS_TEST_FILES_TGT_properties_typeProperties_url": {
+						"value": "[parameters('LS_TEST_FILES_TGT_properties_typeProperties_url')]"
+					},
+					"LS_TEST_FOREACH_properties_typeProperties_url": {
+						"value": "[parameters('LS_TEST_FOREACH_properties_typeProperties_url')]"
+					},
+					"LS_TEXT_MULYPLE_CSV_properties_typeProperties_url": {
+						"value": "[parameters('LS_TEXT_MULYPLE_CSV_properties_typeProperties_url')]"
+					},
+					"LS_TGT_RESTAPI_properties_typeProperties_url": {
+						"value": "[parameters('LS_TGT_RESTAPI_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adfdevcheronprojectReshmi_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_SP1_password": {
+						"value": "[parameters('LS_SP1_password')]"
+					},
+					"LS_SQLSERVER_password": {
+						"value": "[parameters('LS_SQLSERVER_password')]"
+					},
+					"LS_SQL_CLOUD_password": {
+						"value": "[parameters('LS_SQL_CLOUD_password')]"
+					},
+					"LS_SQL_CLOUD2_password": {
+						"value": "[parameters('LS_SQL_CLOUD2_password')]"
+					},
+					"LS_SQL_CLoudN_password": {
+						"value": "[parameters('LS_SQL_CLoudN_password')]"
+					},
+					"LS_SP1_properties_typeProperties_server": {
+						"value": "[parameters('LS_SP1_properties_typeProperties_server')]"
+					},
+					"LS_SP1_properties_typeProperties_database": {
+						"value": "[parameters('LS_SP1_properties_typeProperties_database')]"
+					},
+					"LS_SP1_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SP1_properties_typeProperties_userName')]"
+					},
+					"LS_SQLSERVER_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_properties_typeProperties_userName')]"
+					},
+					"LS_SQL_CLOUD_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_CLOUD_properties_typeProperties_server')]"
+					},
+					"LS_SQL_CLOUD_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_CLOUD_properties_typeProperties_database')]"
+					},
+					"LS_SQL_CLOUD_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_CLOUD_properties_typeProperties_userName')]"
+					},
+					"LS_SQL_CLOUD2_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_CLOUD2_properties_typeProperties_server')]"
+					},
+					"LS_SQL_CLOUD2_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_CLOUD2_properties_typeProperties_database')]"
+					},
+					"LS_SQL_CLOUD2_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_CLOUD2_properties_typeProperties_userName')]"
+					},
+					"LS_SQL_CLoudN_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_CLoudN_properties_typeProperties_server')]"
+					},
+					"LS_SQL_CLoudN_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_CLoudN_properties_typeProperties_database')]"
+					},
+					"LS_SQL_CLoudN_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_CLoudN_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevcheronprojectReshmi_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adfdevcheronprojectReshmi_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevcheronprojectReshmi_ArmTemplate_1')]"
+			]
+		}
+	]
+}

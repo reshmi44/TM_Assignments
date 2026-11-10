@@ -1,0 +1,162 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfdevcheronprojectReshmi"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
+		"LST_TGT_MUltiple_Files_accountKey": {
+			"value": ""
+		},
+		"LS_Multiple_accountKey": {
+			"value": ""
+		},
+		"LS_PRQ_accountKey": {
+			"value": ""
+		},
+		"LS_SOURCE_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_SOURCE_EXCEL_accountKey": {
+			"value": ""
+		},
+		"LS_SOURCE_Multiple_accountKey": {
+			"value": ""
+		},
+		"LS_SP1_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_password": {
+			"value": ""
+		},
+		"LS_SQL_CLOUD_password": {
+			"value": ""
+		},
+		"LS_SQL_CLOUD2_password": {
+			"value": ""
+		},
+		"LS_SQL_CLoudN_password": {
+			"value": ""
+		},
+		"LS_TEST_FILES_accountKey": {
+			"value": ""
+		},
+		"LS_TEST_FILES_SRC_accountKey": {
+			"value": ""
+		},
+		"LS_TEST_FILES_TGT_accountKey": {
+			"value": ""
+		},
+		"LS_TEST_FOREACH_accountKey": {
+			"value": ""
+		},
+		"LS_TEXT_MULYPLE_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_TGT_RESTAPI_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://tgtsqlcloud.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"value": "https://tgttestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LST_TGT_MUltiple_Files_properties_typeProperties_url": {
+			"value": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_Multiple_properties_typeProperties_url": {
+			"value": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_PRQ_properties_typeProperties_url": {
+			"value": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_RESTAPI_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"LS_SOURCE_CSV_properties_typeProperties_url": {
+			"value": "https://srcexcel.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_EXCEL_properties_typeProperties_url": {
+			"value": "https://samplesrcdev.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_Multiple_properties_typeProperties_url": {
+			"value": "https://srcexcel.dfs.core.windows.net/"
+		},
+		"LS_SP1_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SP1_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_SP1_properties_typeProperties_userName": {
+			"value": "admin"
+		},
+		"LS_SQLSERVER_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_SQLSERVER_properties_typeProperties_userName": {
+			"value": "DESKTOP-HUMOS9F\\Lenova"
+		},
+		"LS_SQL_CLOUD_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_CLOUD_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_SQL_CLOUD_properties_typeProperties_userName": {
+			"value": "DESKTOP-HUMOS9F\\Lenova"
+		},
+		"LS_SQL_CLOUD2_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_CLOUD2_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_SQL_CLOUD2_properties_typeProperties_userName": {
+			"value": "admin"
+		},
+		"LS_SQL_CLoudN_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_CLoudN_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_SQL_CLoudN_properties_typeProperties_userName": {
+			"value": "admin"
+		},
+		"LS_TEST_FILES_properties_typeProperties_url": {
+			"value": "https://srctestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEST_FILES_SRC_properties_typeProperties_url": {
+			"value": "https://srctestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEST_FILES_TGT_properties_typeProperties_url": {
+			"value": "https://tgttestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEST_FOREACH_properties_typeProperties_url": {
+			"value": "https://srctestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEXT_MULYPLE_CSV_properties_typeProperties_url": {
+			"value": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_TGT_RESTAPI_properties_typeProperties_url": {
+			"value": "https://tgtsqlcloud.dfs.core.windows.net/"
+		}
+	}
+}

@@ -1,0 +1,2008 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfdevcheronprojectReshmi"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage3'"
+		},
+		"LST_TGT_MUltiple_Files_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LST_TGT_MUltiple_Files'"
+		},
+		"LS_Multiple_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Multiple'"
+		},
+		"LS_PRQ_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_PRQ'"
+		},
+		"LS_SOURCE_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SOURCE_CSV'"
+		},
+		"LS_SOURCE_EXCEL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SOURCE_EXCEL'"
+		},
+		"LS_SOURCE_Multiple_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SOURCE_Multiple'"
+		},
+		"LS_SP1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SP1'"
+		},
+		"LS_SQLSERVER_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER'"
+		},
+		"LS_SQL_CLOUD_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_CLOUD'"
+		},
+		"LS_SQL_CLOUD2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_CLOUD2'"
+		},
+		"LS_SQL_CLoudN_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_CLoudN'"
+		},
+		"LS_TEST_FILES_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEST_FILES'"
+		},
+		"LS_TEST_FILES_SRC_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEST_FILES_SRC'"
+		},
+		"LS_TEST_FILES_TGT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEST_FILES_TGT'"
+		},
+		"LS_TEST_FOREACH_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEST_FOREACH'"
+		},
+		"LS_TEXT_MULYPLE_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEXT_MULYPLE_CSV'"
+		},
+		"LS_TGT_RESTAPI_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TGT_RESTAPI'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtsqlcloud.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgttestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LST_TGT_MUltiple_Files_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_Multiple_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_PRQ_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_RESTAPI_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"LS_SOURCE_CSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srcexcel.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_EXCEL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://samplesrcdev.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_Multiple_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srcexcel.dfs.core.windows.net/"
+		},
+		"LS_SP1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SP1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SP1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"LS_SQLSERVER_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SQLSERVER_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "DESKTOP-HUMOS9F\\Lenova"
+		},
+		"LS_SQL_CLOUD_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_CLOUD_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SQL_CLOUD_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "DESKTOP-HUMOS9F\\Lenova"
+		},
+		"LS_SQL_CLOUD2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_CLOUD2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SQL_CLOUD2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"LS_SQL_CLoudN_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_CLoudN_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_SQL_CLoudN_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin"
+		},
+		"LS_TEST_FILES_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srctestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEST_FILES_SRC_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srctestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEST_FILES_TGT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgttestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEST_FOREACH_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://srctestmultiplefiles.dfs.core.windows.net/"
+		},
+		"LS_TEXT_MULYPLE_CSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtexcel.dfs.core.windows.net/"
+		},
+		"LS_TGT_RESTAPI_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tgtsqlcloud.dfs.core.windows.net/"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_CSV_MULTIPLE')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DL_SRC_Multiple",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DL_TEXT_MULYPLE_CSV",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2026-11-07T07:02:55Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DL_SRC_Multiple')]",
+				"[concat(variables('factoryId'), '/datasets/DL_TEXT_MULYPLE_CSV')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_EXCEL_ADLS')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DL_SRC_Multiple",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DL_SRC_Multiple",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2026-11-07T04:38:48Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DL_SRC_Multiple')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_LKP_FILTER')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Lookup1",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "DS_SQL_CLoud",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"firstRowOnly": false
+						}
+					},
+					{
+						"name": "Filter1",
+						"type": "Filter",
+						"dependsOn": [
+							{
+								"activity": "Lookup1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Lookup1').output.value",
+								"type": "Expression"
+							},
+							"condition": {
+								"value": "@or(equals(item().DepartmentId, 1), equals(item().DepartmentId, 2))",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2026-11-09T07:32:19Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DS_SQL_CLoud')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_RESTAPI')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"supportRFC5988": "true"
+								}
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "$['id']"
+										},
+										"sink": {
+											"name": "id"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Sku']"
+										},
+										"sink": {
+											"name": "Sku"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TP 1']"
+										},
+										"sink": {
+											"name": "TP1"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TP 2']"
+										},
+										"sink": {
+											"name": "TP2"
+										}
+									},
+									{
+										"source": {
+											"path": "$['index']"
+										},
+										"sink": {
+											"name": "index"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Weight']"
+										},
+										"sink": {
+											"name": "Weight"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Catalog']"
+										},
+										"sink": {
+											"name": "Catalog"
+										}
+									},
+									{
+										"source": {
+											"path": "$['MRP Old']"
+										},
+										"sink": {
+											"name": "MRPOld"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Ajio MRP']"
+										},
+										"sink": {
+											"name": "AjioMRP"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Category']"
+										},
+										"sink": {
+											"name": "Category"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Style Id']"
+										},
+										"sink": {
+											"name": "StyleId"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Paytm MRP']"
+										},
+										"sink": {
+											"name": "PaytmMRP"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Amazon MRP']"
+										},
+										"sink": {
+											"name": "AmazonMRP"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Myntra MRP']"
+										},
+										"sink": {
+											"name": "MyntraMRP"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Flipkart MRP']"
+										},
+										"sink": {
+											"name": "FlipkartMRP"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Limeroad MRP']"
+										},
+										"sink": {
+											"name": "LimeroadMRP"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Snapdeal MRP']"
+										},
+										"sink": {
+											"name": "SnapdealMRP"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Final MRP Old']"
+										},
+										"sink": {
+											"name": "FinalMRPOld"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Amazon FBA MRP']"
+										},
+										"sink": {
+											"name": "AmazonFBAMRP"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_RESTAPI",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_TGT_RESTAPI",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2026-11-07T16:03:20Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DS_RESTAPI')]",
+				"[concat(variables('factoryId'), '/datasets/DS_TGT_RESTAPI')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_SQL_CLOUD')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_SQL_CLoud",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_SQL_CLOUD_PARQUET",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2026-11-07T14:32:52Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DS_SQL_CLoud')]",
+				"[concat(variables('factoryId'), '/datasets/DS_SQL_CLOUD_PARQUET')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_SQL_CLOUD1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "BusinessEntityID",
+											"type": "Int32",
+											"physicalType": "int"
+										},
+										"sink": {
+											"name": "BusinessEntityID",
+											"type": "Int32",
+											"physicalType": "INT_32"
+										}
+									},
+									{
+										"source": {
+											"name": "NationalIDNumber",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "NationalIDNumber",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "LoginID",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "LoginID",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "OrganizationNode",
+											"physicalType": "hierarchyid"
+										},
+										"sink": {
+											"name": "OrganizationNode"
+										}
+									},
+									{
+										"source": {
+											"name": "OrganizationLevel",
+											"type": "Int16",
+											"physicalType": "smallint"
+										},
+										"sink": {
+											"name": "OrganizationLevel",
+											"type": "Int16",
+											"physicalType": "INT_32"
+										}
+									},
+									{
+										"source": {
+											"name": "JobTitle",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "JobTitle",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "BirthDate",
+											"type": "Date",
+											"physicalType": "date"
+										},
+										"sink": {
+											"name": "BirthDate",
+											"type": "Date"
+										}
+									},
+									{
+										"source": {
+											"name": "MaritalStatus",
+											"type": "String",
+											"physicalType": "nchar"
+										},
+										"sink": {
+											"name": "MaritalStatus",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Gender",
+											"type": "String",
+											"physicalType": "nchar"
+										},
+										"sink": {
+											"name": "Gender",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "HireDate",
+											"type": "Date",
+											"physicalType": "date"
+										},
+										"sink": {
+											"name": "HireDate",
+											"type": "Date"
+										}
+									},
+									{
+										"source": {
+											"name": "SalariedFlag",
+											"type": "Boolean",
+											"physicalType": "bit"
+										},
+										"sink": {
+											"name": "SalariedFlag",
+											"type": "Boolean",
+											"physicalType": "BOOLEAN"
+										}
+									},
+									{
+										"source": {
+											"name": "VacationHours",
+											"type": "Int16",
+											"physicalType": "smallint"
+										},
+										"sink": {
+											"name": "VacationHours",
+											"type": "Int16",
+											"physicalType": "INT_32"
+										}
+									},
+									{
+										"source": {
+											"name": "SickLeaveHours",
+											"type": "Int16",
+											"physicalType": "smallint"
+										},
+										"sink": {
+											"name": "SickLeaveHours",
+											"type": "Int16",
+											"physicalType": "INT_32"
+										}
+									},
+									{
+										"source": {
+											"name": "CurrentFlag",
+											"type": "Boolean",
+											"physicalType": "bit"
+										},
+										"sink": {
+											"name": "CurrentFlag",
+											"type": "Boolean",
+											"physicalType": "BOOLEAN"
+										}
+									},
+									{
+										"source": {
+											"name": "rowguid",
+											"type": "Guid",
+											"physicalType": "uniqueidentifier"
+										},
+										"sink": {
+											"name": "rowguid",
+											"type": "Guid",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "ModifiedDate",
+											"type": "DateTime",
+											"physicalType": "datetime"
+										},
+										"sink": {
+											"name": "ModifiedDate",
+											"type": "DateTime",
+											"physicalType": "INT_96"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_SQL_CLOUD1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_SQL_CLOUD_PARQUET",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2026-11-07T15:21:09Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DS_SQL_CLOUD1')]",
+				"[concat(variables('factoryId'), '/datasets/DS_SQL_CLOUD_PARQUET')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_SQL_SP')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "SP1",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[InsertCustomer]",
+							"storedProcedureParameters": {
+								"CustomerID": {
+									"value": null,
+									"type": "Int32"
+								},
+								"FirstName": {
+									"value": "",
+									"type": "String"
+								},
+								"LastName": {
+									"value": "",
+									"type": "String"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "LS_SP1",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2026-11-08T02:38:39Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_SP1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_TEST_FOREACH')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Get Metadata1",
+						"type": "GetMetadata",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "DL_TEXT_MULYPLE_CSV",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"fieldList": [
+								"childItems"
+							],
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							},
+							"formatSettings": {
+								"type": "DelimitedTextReadSettings"
+							}
+						}
+					},
+					{
+						"name": "ForEach1",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Get Metadata1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Get Metadata1').output.childItems",
+								"type": "Expression"
+							},
+							"isSequential": true,
+							"activities": [
+								{
+									"name": "Copy data1",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "DelimitedTextSource",
+											"storeSettings": {
+												"type": "AzureBlobFSReadSettings",
+												"recursive": true,
+												"wildcardFileName": "*",
+												"enablePartitionDiscovery": false
+											},
+											"formatSettings": {
+												"type": "DelimitedTextReadSettings"
+											}
+										},
+										"sink": {
+											"type": "ParquetSink",
+											"storeSettings": {
+												"type": "AzureBlobFSWriteSettings"
+											},
+											"formatSettings": {
+												"type": "ParquetWriteSettings"
+											}
+										},
+										"enableStaging": false,
+										"translator": {
+											"type": "TabularTranslator",
+											"typeConversion": true,
+											"typeConversionSettings": {
+												"allowDataTruncation": true,
+												"treatBooleanAsNumber": false
+											}
+										}
+									},
+									"inputs": [
+										{
+											"referenceName": "DL_TEST_FOREACH_SRC",
+											"type": "DatasetReference",
+											"parameters": {}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "DL_TEST_FOREACH_TGT",
+											"type": "DatasetReference",
+											"parameters": {}
+										}
+									]
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2026-11-09T01:02:13Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DL_TEXT_MULYPLE_CSV')]",
+				"[concat(variables('factoryId'), '/datasets/DL_TEST_FOREACH_SRC')]",
+				"[concat(variables('factoryId'), '/datasets/DL_TEST_FOREACH_TGT')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Wait1",
+						"type": "Wait",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DL_SRC_INPUTMULTIPLE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_SOURCE_Multiple",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "inputmultiple"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "SIC_Code",
+						"type": "String"
+					},
+					{
+						"name": "Description",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_SOURCE_Multiple')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DL_SRC_Multiple')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_SOURCE_Multiple",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "inputmultiple"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_SOURCE_Multiple')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DL_TEST_FOREACH_SRC')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_TEST_FOREACH",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "test",
+						"fileSystem": "srcfilestest"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_TEST_FOREACH')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DL_TEST_FOREACH_TGT')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage3",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "outputtgt"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": [
+					{
+						"name": "SIC_Code",
+						"type": "UTF8"
+					},
+					{
+						"name": "Description",
+						"type": "UTF8"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage3')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DL_TEXT_MULYPLE_CSV')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_TEXT_MULYPLE_CSV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "multiplecsv"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_TEXT_MULYPLE_CSV')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DL_TGT_MUltiple_Files')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LST_TGT_MUltiple_Files",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LST_TGT_MUltiple_Files')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_RESTAPI')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_RESTAPI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_RESTAPI')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SQL_CLOUD1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_SQL_CLOUD2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "BusinessEntityID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NationalIDNumber",
+						"type": "nvarchar"
+					},
+					{
+						"name": "LoginID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OrganizationNode",
+						"type": "hierarchyid"
+					},
+					{
+						"name": "OrganizationLevel",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "JobTitle",
+						"type": "nvarchar"
+					},
+					{
+						"name": "BirthDate",
+						"type": "date"
+					},
+					{
+						"name": "MaritalStatus",
+						"type": "nchar"
+					},
+					{
+						"name": "Gender",
+						"type": "nchar"
+					},
+					{
+						"name": "HireDate",
+						"type": "date"
+					},
+					{
+						"name": "SalariedFlag",
+						"type": "bit"
+					},
+					{
+						"name": "VacationHours",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "SickLeaveHours",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "CurrentFlag",
+						"type": "bit"
+					},
+					{
+						"name": "rowguid",
+						"type": "uniqueidentifier"
+					},
+					{
+						"name": "ModifiedDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "HumanResources",
+					"table": "Employee"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_SQL_CLOUD2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SQL_CLOUD_PARQUET')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "sqlcloud"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SQL_CLoud')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_SQL_CLoudN",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "DepartmentID",
+						"type": "smallint",
+						"precision": 5
+					},
+					{
+						"name": "Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "GroupName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ModifiedDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "HumanResources",
+					"table": "Department"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_SQL_CLoudN')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_TGT_RESTAPI')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_TGT_RESTAPI",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "restapioutput"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_TGT_RESTAPI')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage3')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('AzureDataLakeStorage3_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LST_TGT_MUltiple_Files')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LST_TGT_MUltiple_Files_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LST_TGT_MUltiple_Files_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_Multiple')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_Multiple_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_Multiple_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_PRQ')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_PRQ_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_PRQ_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_RESTAPI')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "RestService",
+				"typeProperties": {
+					"url": "[parameters('LS_RESTAPI_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SOURCE_CSV')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_SOURCE_CSV_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SOURCE_CSV_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SOURCE_EXCEL')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_SOURCE_EXCEL_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SOURCE_EXCEL_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SOURCE_Multiple')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_SOURCE_Multiple_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SOURCE_Multiple_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SP1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_SP1_properties_typeProperties_server')]",
+					"database": "[parameters('LS_SP1_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_SP1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SP1_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SQLSERVER')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_SQLSERVER_properties_typeProperties_server')]",
+					"database": "[parameters('LS_SQLSERVER_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"hostNameInCertificate": "DESKTOP-HUMOS9F\\Lenova",
+					"authenticationType": "Windows",
+					"userName": "[parameters('LS_SQLSERVER_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SQLSERVER_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SQL_CLOUD')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_SQL_CLOUD_properties_typeProperties_server')]",
+					"database": "[parameters('LS_SQL_CLOUD_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": true,
+					"authenticationType": "Windows",
+					"userName": "[parameters('LS_SQL_CLOUD_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SQL_CLOUD_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SQL_CLOUD2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_SQL_CLOUD2_properties_typeProperties_server')]",
+					"database": "[parameters('LS_SQL_CLOUD2_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_SQL_CLOUD2_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SQL_CLOUD2_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SQL_CLoudN')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_SQL_CLoudN_properties_typeProperties_server')]",
+					"database": "[parameters('LS_SQL_CLoudN_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_SQL_CLoudN_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_SQL_CLoudN_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_TEST_FILES')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_TEST_FILES_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_TEST_FILES_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_TEST_FILES_SRC')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_TEST_FILES_SRC_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_TEST_FILES_SRC_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_TEST_FILES_TGT')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_TEST_FILES_TGT_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_TEST_FILES_TGT_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_TEST_FOREACH')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_TEST_FOREACH_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_TEST_FOREACH_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_TEXT_MULYPLE_CSV')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_TEXT_MULYPLE_CSV_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_TEXT_MULYPLE_CSV_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_TGT_RESTAPI')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_TGT_RESTAPI_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_TGT_RESTAPI_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime2')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"description": "SQL to ADLS",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		}
+	]
+}
