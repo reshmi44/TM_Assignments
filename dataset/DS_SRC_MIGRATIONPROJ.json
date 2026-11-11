@@ -2,7 +2,7 @@
 	"name": "DS_SRC_MIGRATIONPROJ",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_SRC_MIGRATIONPROJ",
+			"referenceName": "LS_PARENT_SQLSERVERNEW",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -17,8 +17,14 @@
 		"type": "SqlServerTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "dbo",
-			"table": "ADF_Watermark_Table"
+			"schema": {
+				"value": "@dataset().TableSchema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().TableName",
+				"type": "Expression"
+			}
 		}
 	}
 }
