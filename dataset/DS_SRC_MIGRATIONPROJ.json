@@ -3,17 +3,7 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_SRC_MIGRATIONPROJ",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"Schemaname ": {
-					"value": "@dataset().TableSchema",
-					"type": "Expression"
-				},
-				"tablename": {
-					"value": "@dataset().TableName",
-					"type": "Expression"
-				}
-			}
+			"type": "LinkedServiceReference"
 		},
 		"parameters": {
 			"TableSchema": {
