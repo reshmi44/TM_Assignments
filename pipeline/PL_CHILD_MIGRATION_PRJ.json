@@ -1,6 +1,33 @@
 {
 	"name": "PL_CHILD_MIGRATION_PRJ",
 	"properties": {
+		"activities": [
+			{
+				"name": "LKPMAXVALUE",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT MAX(@{pipeline().parameters.WatermarkColumn}) AS MaxValue\r\nFROM @{pipeline().parameters.TableSchema}.@{pipeline().parameters.TableName}\r\n",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "DS_SRC_MIGRATIONPROJ",
+						"type": "DatasetReference"
+					}
+				}
+			}
+		],
 		"parameters": {
 			"TableSchema": {
 				"type": "string"
